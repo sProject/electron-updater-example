@@ -90,19 +90,16 @@ autoUpdater.on('error', (err) => {
 })
 autoUpdater.on('download-progress', (progressObj) => {
 	console.log('download-progress');
-	let log_message = "Download speed: " + progressObj.bytesPerSecond;
-	log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-	log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-	sendStatusToWindow(log_message);
+	sendStatusToWindow('Download in progress...');
 })
 autoUpdater.on('update-downloaded', (info) => {
 	console.log('update-downloaded');
 	sendStatusToWindow('Update downloaded');
+	setTimeout(() => autoUpdater.quitAndInstall(), 5000)
 });
-
 app.on('ready', function()  {
 	console.info('autoUpdater.checkForUpdatesAndNotify();');
-	autoUpdater.checkForUpdatesAndNotify();
+	autoUpdater.checkForUpdates();
 });
 
 // ---------------

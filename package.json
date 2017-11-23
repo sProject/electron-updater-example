@@ -1,31 +1,12 @@
 {
-	"name": "electron-updater-example",
-	"version": "0.7.0",
+	"name": "app",
+	"version": "0.9.72",
 	"main": "main.js",
 	"description": "electron-updater example project",
-	"author": "Matt Haggard",
-	"build": {
-		"appId": "com.github.sproject",
-		"productName": "productName",
-		"copyright": "Copyright © 2017 ${author}",
-		"publish": ["github"],
-		"mac": {
-			"category": "your.app.category.type",
-			"target": [
-				"zip",
-				"dmg"
-			]
-		},
-		"linux": {
-			"category": "your.app.category.type",
-			"target": [
-				"AppImage"
-			]
-		}
-	},
+	"author": "Matt Haggard <e@mail.com>",
 	"scripts": {
 		"start": "NODE_ENV=test electron .",
-		"pub": "electron-builder --x64 -p always",
+		"pub": "electron-builder --x64 --linux -p always",
 		"pack": "electron-builder --dir",
 		"dist": "electron-builder"
 	},

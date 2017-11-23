@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>[UPDATED] Electron Updater Example</title>
+	<title id="title">[0.9.5][FEDORA][UPDATED] Electron Updater Example</title>
 </head>
 <body>
 	Current version: <span id="version">vX.Y.Z</span>
@@ -10,6 +10,7 @@
 // Display the current version
 let version = window.location.hash.substring(1);
 document.getElementById('version').innerText = version;
+document.getElementById('title').innerText = version;
 
 // Listen for messages
 const {ipcRenderer} = require('electron');

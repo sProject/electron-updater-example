@@ -1,0 +1,138 @@
+Error: Configuration is invalid.
+ - configuration.linux should be one of these:
+   object { artifactName?, asar?, asarUnpack?, category?, compression?, depends?, description?, desktop?, detectUpdateChannel?, executableName?, extraFiles?, extraResources?, fileAssociations?, files?, forceCodeSigning?, generateUpdatesFilesForAllChannels?, icon?, maintainer?, packageCategory?, protocols?, publish?, releaseInfo?, synopsis?, target?, vendor? } | {
+     "type": "null"
+   }
+   Options related to how build Linux targets.
+
+   Details:
+    * configuration.linux.publish has an unknown property 'release'. These properties are valid:
+      object { host?, owner?, private?, protocol?, provider, publisherName?, releaseType?, repo?, token?, vPrefixedTagName? }
+      [GitHub](https://help.github.com/articles/about-releases/) options.
+
+    * configuration.linux.publish has an unknown property 'release'. These properties are valid:
+      object { acl?, bucket, channel?, endpoint?, path?, provider, publisherName?, region?, storageClass? }
+    * configuration.linux.publish misses the property 'bucket'.
+      string
+      The bucket name.
+
+    * configuration.linux.publish.provider should be string
+      The provider. Must be `s3`.
+
+    * configuration.linux.publish has an unknown property 'release'. These properties are valid:
+      object { acl?, channel?, name, path?, provider, publisherName?, region }
+      [DigitalOcean Spaces](https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-spaces) options.
+      Access key is required, define `DO_KEY_ID` and `DO_SECRET_KEY` environment variables.
+
+    * configuration.linux.publish misses the property 'name'.
+      string
+      The space name.
+
+    * configuration.linux.publish.provider should be string
+      The provider. Must be `spaces`.
+
+    * configuration.linux.publish misses the property 'region'.
+      string
+      The region (e.g. `nyc3`).
+
+    * configuration.linux.publish has an unknown property 'release'. These properties are valid:
+      object { channel?, provider, publisherName?, url }
+      Generic (any HTTP(S) server) options.
+
+    * configuration.linux.publish.provider should be string
+      The provider. Must be `generic`.
+
+    * configuration.linux.publish misses the property 'url'.
+      string
+      The base url. e.g. `https://bucket_name.s3.amazonaws.com`. You can use `${os}` (expanded to `mac`, `linux` or `win` according to target platform) and `${arch}` macros.
+
+    * configuration.linux.publish has an unknown property 'release'. These properties are valid:
+      object { component?, distribution?, owner?, package?, provider, publisherName?, repo?, token?, user? }
+      [Bintray](https://bintray.com/) options. Requires an API key. An API key can be obtained from the user [profile](https://bintray.com/profile/edit) page ("Edit Your Profile" -> API Key).
+      Define `BT_TOKEN` environment variable.
+
+    * configuration.linux.publish.provider should be string
+      The provider. Must be `bintray`.
+
+    * configuration.linux.publish should be an array:
+      [object { host?, owner?, private?, protocol?, provider, publisherName?, releaseType?, repo?, token?, vPrefixedTagName? } | object { acl?, bucket, channel?, endpoint?, path?, provider, publisherName?, region?, storageClass? } | object { acl?, channel?, name, path?, provider, publisherName?, region } | object { channel?, provider, publisherName?, url } | object { component?, distribution?, owner?, package?, provider, publisherName?, repo?, token?, user? } | string]
+    * configuration.linux.publish should be null,string:
+      {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    * configuration.linux.publish should be one of these:
+      object { host?, owner?, private?, protocol?, provider, publisherName?, releaseType?, repo?, token?, vPrefixedTagName? } | object { acl?, bucket, channel?, endpoint?, path?, provider, publisherName?, region?, storageClass? } | object { acl?, channel?, name, path?, provider, publisherName?, region } | object { channel?, provider, publisherName?, url } | object { component?, distribution?, owner?, package?, provider, publisherName?, repo?, token?, user? } | [object { host?, owner?, private?, protocol?, provider, publisherName?, releaseType?, repo?, token?, vPrefixedTagName? } | object { acl?, bucket, channel?, endpoint?, path?, provider, publisherName?, region?, storageClass? } | object { acl?, channel?, name, path?, provider, publisherName?, region } | object { channel?, provider, publisherName?, url } | object { component?, distribution?, owner?, package?, provider, publisherName?, repo?, token?, user? } | string] | {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    * configuration.linux should be null:
+      {
+        "type": "null"
+      }
+
+
+
+      {
+      	"linux": {
+      		"artifactName": "artifactName",
+      		"asar": "asar",
+      		"asarUnpack": "asarUnpack",
+      		"category": "category",
+      		"compression": "compression",
+      		"depends": "depends",
+      		"description": "decription",
+      		"desktop": "desktop",
+      		"detectUpdateChannel": "detectUpdateChannel",
+      		"executableName": "executableName",
+      		"extraFiles": "extraFiles",
+      		"extraResources": "extraResources",
+      		"fileAssociations": "fileAssociations",
+      		"files": "files",
+      		"forceCodeSigning": "forceCodeSigning",
+      		"generateUpdatesFilesForAllChannels": "generateUpdatesFilesForAllChannels",
+      		"icon": "icon",
+      		"maintainer": "maintainer",
+      		"packageCategory": "packageCategory",
+      		"protocols": "protocols",
+      		"publish": {
+      			"host": "host",
+      			"owner": "owner",
+      			"private": "private",
+      			"protocol": "protocol",
+      			"provider": "provider",
+      			"publisherName": "publisherName",
+      			"releaseType": "releaseType",
+      			"repo": "repo",
+      			"token": "token",
+      			"vPrefixedTagName": "vPrefixedTagName"
+      		},
+      		"releaseInfo": "releaseInfo",
+      		"synopsis": "synopsis",
+      		"target": "target",
+      		"vendor": "vendor"
+      		}
+      	}
+      }
+
+      "build": {
+          "appId": "this.app.id",
+          "linux": {
+            "category": "Graphics",
+            "target": [
+              "AppImage"
+            ],
+            "publish": {
+              "provider": "github",
+              "releaseType": "draft"
+            }
+          }
+        },
+        "AppImage": {
+      		"publish" : ["always"],
+      		"artifactName": "artifactName"
+      	},
