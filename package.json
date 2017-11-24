@@ -1,18 +1,28 @@
 {
 	"name": "app",
-	"version": "0.9.72",
+	"version": "0.9.74",
 	"main": "main.js",
 	"description": "electron-updater example project",
 	"author": "Matt Haggard <e@mail.com>",
+	"build": {
+		"appId": "this.app.id",
+		"publish": [
+			{
+				"provider": "s3",
+				"bucket": "electron-bucket"
+			}
+		]
+	},
 	"scripts": {
 		"start": "NODE_ENV=test electron .",
-		"pub": "electron-builder --x64 --linux -p always",
+		"pub": "electron-builder -p always",
 		"pack": "electron-builder --dir",
 		"dist": "electron-builder"
 	},
 	"devDependencies": {
 		"electron": "^1.7.9",
-		"electron-builder": "^19.43.5"
+		"electron-builder": "^19.43.5",
+		"electron-publisher-s3": "^19.46.5"
 	},
 	"dependencies": {
 		"electron-log": "^2.2.11",
