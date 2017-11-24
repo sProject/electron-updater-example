@@ -1,6 +1,6 @@
 {
 	"name": "app",
-	"version": "0.9.74",
+	"version": "0.9.75",
 	"main": "main.js",
 	"description": "electron-updater example project",
 	"author": "Matt Haggard <e@mail.com>",
@@ -9,7 +9,10 @@
 		"publish": [
 			{
 				"provider": "s3",
-				"bucket": "electron-bucket"
+				"bucket": "electron-bucket",
+				"region": "eu-west-1",
+				"acl": "public-read",
+				"path": "releases"
 			}
 		]
 	},
